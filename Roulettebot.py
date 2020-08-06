@@ -51,7 +51,7 @@ class MyClient(discord.Client):
                 #Date[0] + Author[1] + Amount[2]
                 f.write(str(message.created_at).split(' ')[0] + " " + str(message.author) + " " + str(amount) + "\n")
                 await message.channel.send('Dir wurden 50 Credits gutgeschrieben!')
-                f.close(
+                f.close()
             else:
                 #Finde letzten Eintrag des Senders
                 f = open("creditfile.txt", "r")
