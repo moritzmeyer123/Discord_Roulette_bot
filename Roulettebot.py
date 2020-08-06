@@ -36,9 +36,11 @@ class MyClient(discord.Client):
             return
             
         if message.content.startswith("!help"):
-            await message.channel.send('!roulette BID AMOUNT, BID = black | red | number[0;36] \n' + 
-                                       '!credits für deinen Geldstatus \n' +
-                                       '!getcredits für tägliche 50 Credits')
+            embedVar = discord.Embed(title = "Roulettebot Commands", color = 0x7289da)
+            embedVar.add_field(name = "Wetten", value = "!roulette BID AMOUNT, BID = black | red | number[0;36]", inline = False)
+            embedVar.add_field(name = "Erfahre deinen Geldstatus", value = "!credits", inline = True)
+            embedVar.add_field(name = "50 neue Credits", value = "!getcredits", inline = True)
+            await message.channel.send(embed = embedVar)
             
 
         if message.content.startswith("!getcredits"):
@@ -49,7 +51,7 @@ class MyClient(discord.Client):
                 #Date[0] + Author[1] + Amount[2]
                 f.write(str(message.created_at).split(' ')[0] + " " + str(message.author) + " " + str(amount) + "\n")
                 await message.channel.send('Dir wurden 50 Credits gutgeschrieben!')
-                f.close()
+                f.close(
             else:
                 #Finde letzten Eintrag des Senders
                 f = open("creditfile.txt", "r")
@@ -128,9 +130,7 @@ class MyClient(discord.Client):
                     await message.channel.send("Leider verloren :(")
                     await message.channel.send("Die Zahl war " + str(result))
 
-
-
 client = MyClient()
-client.run("NzEyNjgwNzY2MzAzMTA5MTgw.XsVFuA.sJ7bi2hLjnZKjDc0K8z-ntxm_Q0")
+client.run("NzEyNjgwNzY2MzAzMTA5MTgw.XsVFrw.TYyGcseaaQj_KRcMczmHYBpWo10")
 
  
