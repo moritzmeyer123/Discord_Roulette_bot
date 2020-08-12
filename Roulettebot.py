@@ -121,7 +121,7 @@ class MyClient(discord.Client):
                     await message.channel.send("$$$ Du hast gewonnen $$$")
                     f.write(str(message.created_at).split(' ')[0] + " " + str(message.author) + " " + str(amount) + "\n")
                     await message.channel.send("Die Zahl war " + str(result))
-                elif won and bid_param == -1 or bid_param == -2:
+                elif won and (bid_param == -1 or bid_param == -2):
                     f.write(str(message.created_at).split(' ')[0] + " " + str(message.author) + " " + str(amount) + "\n")
                     await message.channel.send("$$$ Du hast gewonnen $$$")
                     await message.channel.send("Die Zahl war " + str(result))
@@ -131,6 +131,6 @@ class MyClient(discord.Client):
                     await message.channel.send("Die Zahl war " + str(result))
 
 client = MyClient()
-client.run("")
+client.run("NzEyNjgwNzY2MzAzMTA5MTgw.XsVFrw.aZnIk0JKXFyOgzvsP9UKRa9SFYA")
 
  
