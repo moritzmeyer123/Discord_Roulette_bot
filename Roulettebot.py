@@ -131,6 +131,6 @@ class MyClient(discord.Client):
                     await message.channel.send("Die Zahl war " + str(result))
 
 client = MyClient()
-client.run("NzEyNjgwNzY2MzAzMTA5MTgw.XsVFrw.aZnIk0JKXFyOgzvsP9UKRa9SFYA")
+client.run("")
 
  
