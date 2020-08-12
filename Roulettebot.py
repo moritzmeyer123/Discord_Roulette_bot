@@ -117,9 +117,10 @@ class MyClient(discord.Client):
                 else:
                     won = result == bid_param
                 f = open("creditfile.txt", "a")
-                if won and bid_param == -3:
+                if won and bid_param >= 0:
                     await message.channel.send("$$$ Du hast gewonnen $$$")
-                    f.write(str(message.created_at).split(' ')[0] + " " + str(message.author) + " " + str(amount) + "\n")
+                    amount = int(amount) * 34
+                    f.write(str(message.created_at).split(' ')[0] + " " + str(message.author) + " " + str(int(amount) * 34) + "\n")
                     await message.channel.send("Die Zahl war " + str(result))
                 elif won and (bid_param == -1 or bid_param == -2):
                     f.write(str(message.created_at).split(' ')[0] + " " + str(message.author) + " " + str(amount) + "\n")
@@ -131,6 +132,6 @@ class MyClient(discord.Client):
                     await message.channel.send("Die Zahl war " + str(result))
 
 client = MyClient()
-client.run("")
+client.run("TOKEN")
 
  
