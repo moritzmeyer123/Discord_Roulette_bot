@@ -4,6 +4,7 @@ import random
 import os
 
 client = commands.Bot(command_prefix = '!')
+client.remove_command('help')
 
 def is_file_empty(file_path):
     """ Check if file is empty by confirming if its size is 0 bytes"""
@@ -33,10 +34,14 @@ async def on_ready():
     print("Der Bot ist online.")
 
 
-@client.command()
-async def helpp(ctx):
+@client.command(pass_context = True)
+async def help(ctx):
     await ctx.message.channel.purge(limit=1)
-    await ctx.send("hello")
+    embedVar = discord.Embed(title = "Roulettebot Commands", color = 0x7289da)
+    embedVar.add_field(name = "Wetten", value = "!roulette BID AMOUNT, BID = black | red | number[0;36]", inline = False)
+    embedVar.add_field(name = "Erfahre deinen Geldstatus", value = "!credits", inline = True)
+    embedVar.add_field(name = "50 neue Credits", value = "!getcredits", inline = True)
+    await ctx.send(embed = embedVar, delete_after = 10.0)
 
 
 @client.command()
@@ -145,4 +150,4 @@ async def roulette(ctx):
             await ctx.send("Die Zahl war " + str(result), delete_after = 10.0)
 
 
-client.run("")
+client.run("NzEyNjgwNzY2MzAzMTA5MTgw.XsVFrw.Il7vOjwKn0zfKMBR1QqUoGdFgAo")
