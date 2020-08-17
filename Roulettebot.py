@@ -47,7 +47,6 @@ async def help(ctx):
 @client.command()
 async def getcredits(ctx):
     await ctx.message.channel.purge(limit=1)
-    print("CTX: " + str(ctx.message))
     #amount = ctx.content.split(' ')[1]
     amount = 50
     if not is_file_empty('creditfile.txt'):
@@ -79,7 +78,7 @@ async def getcredits(ctx):
                 await ctx.send("Du hast heute bereits neue Credits angefordert! Schaue morgen wieder vorbei!", delete_after = 10.0)
             else:
                 f = open("creditfile.txt", "a")
-                f.write(str(ctx.message.created_at).split(' ')[0] + " " + str(ctx.message.message.author) + " " + str(amount) + "\n")
+                f.write(str(ctx.message.created_at).split(' ')[0] + " " + str(ctx.message.author) + " " + str(amount) + "\n")
                 await ctx.send('Dir wurden 50 Credits gutgeschrieben!', delete_after = 10.0)
                 f.close()
         else:
@@ -150,4 +149,4 @@ async def roulette(ctx):
             await ctx.send("Die Zahl war " + str(result), delete_after = 10.0)
 
 
-client.run("NzEyNjgwNzY2MzAzMTA5MTgw.XsVFrw.Il7vOjwKn0zfKMBR1QqUoGdFgAo")
+client.run("")
